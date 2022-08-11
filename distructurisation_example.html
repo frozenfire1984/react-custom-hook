@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	const obj = {
+		name: "John",
+		email: "j@gmail.com",
+		age: 20,
+		info: {
+			address: "LA",
+			phone: "12234234"
+		}
+	}
+	
+	
+
+	const {name: nick, email, age, info, info: {address, phone} = {}} = obj
+
+	//console.log(nick)
+	/**************/
+
+	const arr = ["foo", "bar", "baz", "lorem", ["ipsum", "sit", "dolor"]]
+	
+	const [first, second, third, fourth, [six,seven,eight]] = arr
+
+	/**************/
+
+	const obj2 = {
+		name: "Daniel",
+		email: "j@gmail.com",
+		age: 20,
+		fights: [
+			{
+				title: "UFC 2016",
+				status: "win"
+			},
+			{
+				title: "UFC 2017",
+				status: "win"
+			},
+			{
+				title: "UFC 2018",
+				status: "loss"
+			},
+			{
+				title: "UFC 2019",
+				status: "win"
+			},
+		]
+	}
+	
+	//const {name, fights: [ one, two ]} = obj2
+
+	const {name, fights: [{title}, {title2} ]} = obj2
+	
+	//console.log(title)
+
+	const {titles = obj2.fights.map(f => f.title), statuses = obj2.fights.map(s => s.status)} = obj2
+	
+	//console.log(titles, statuses)
+	
+	/*****************/
+	
+	const chank1 = {
+		foo: "foo",
+		bar: "bar",
+	} 
+	
+	const chank2 = {
+		baz: "baz",
+		lorem: "lorem"
+	} 
+	
+	const chank3 = {
+		ipsum: "ipsum",
+		sit: "sit",
+		dolor: "dolor"
+	} 
+	
+	const {foo, bar, baz, lorem, ipsum, sit, dolor} = {...chank1, ...chank2, ...chank3}
+	
+	console.log(baz)
+
+</script>
+</body>
+</html>
