@@ -1,14 +1,15 @@
 import './Form.scss'
 import useInput from "./../../hooks/useInput";
+//import useTheme from "../../hooks/useTheme";
 
 function App() {
 	const name = useInput()
 	const email = useInput("invalid invalid_extra")
-	
+	//const {theme, toggleTheme} = useTheme()
 	const input_attrs = {type: "text", placeholder: "input", required: true}
 	
 	return (
-		<div className="app">
+		<>
 			<div className="container">
 				<form>
 					<div className="row">
@@ -30,12 +31,13 @@ function App() {
         </div>
 				</form>
 			</div>
+			{/*<button onClick={toggleTheme}>Toggle theme</button>*/}
 			<hr/>
 			<ul>
 				<li>Name: {name.value}</li>
 				<li>Email: {email.value}</li>
 			</ul>
-		</div>
+		</>
 	)
 }
 

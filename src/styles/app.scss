@@ -1,0 +1,35 @@
+body {
+  /*padding: 20px;*/
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 1rem;
+
+  &.white {
+
+  }
+
+  &.dark {
+    background-color: hsl(0, 0%, 20%);
+    color: #fff;
+
+    button {
+      //background-color: #fff;
+    }
+  }
+}
+
+.container {
+  width: CLAMP(300px, 70%, 500px);
+  margin-inline: auto;
+}
+
+.err {
+  margin: 0;
+  color: red;
+  font-size: .8em;
+}
+
+
