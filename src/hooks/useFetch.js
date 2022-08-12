@@ -13,8 +13,8 @@ const useFetch = (url, options) => {
 		fetch(url, options)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data.data)
-				setStatus({loading: false, data: data.data})
+				console.log(data)
+				setStatus({loading: false, data: data})
 			})
 			.catch((err) => {
 				setStatus({loading: false, error: "FETCH ERROR"})
