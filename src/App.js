@@ -1,22 +1,21 @@
 import './styles/app.scss'
 import Form from "./Components/Form/Form";
 import List	from "./Components/List/List"
+import Info	from "./Components/Info/Info"
 import useTheme from "./hooks/useTheme";
-import {useEffect} from "react";
+import {useEffect, useContext} from "react";
+import {ThemeContext} from "./context/ThemeContext";
 
 function App() {
 	const {theme, toggleTheme} = useTheme()
 	
-	useEffect(() => {
-		//const l = localStorage.getItem("theme")
-		//console.log(l)
-	},[theme])
-	
 	return (
-		<div className={`app ${theme}`}>
-			<Form />
-			<button onClick={toggleTheme}>Toggle theme</button>
-		</div>
+		<ThemeContext.Provider value={{theme, toggleTheme}}>
+			<div className="app">
+				<Form />
+				<Info />
+			</div>
+		</ThemeContext.Provider>
 	)
 }
 

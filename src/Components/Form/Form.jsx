@@ -1,16 +1,20 @@
-import './Form.scss'
+import {useContext} from "react";
 import useInput from "./../../hooks/useInput";
+import {ThemeContext} from "../../context/ThemeContext";
+import './Form.scss'
 //import useTheme from "../../hooks/useTheme";
 
 function App() {
 	const name = useInput()
 	const email = useInput("invalid invalid_extra")
 	//const {theme, toggleTheme} = useTheme()
+	
+	const {theme, toggleTheme} = useContext(ThemeContext)
 	const input_attrs = {type: "text", placeholder: "input", required: true}
 	
 	return (
 		<>
-			<div className="container">
+			<div className={`container ${theme}`}>
 				<form>
 					<div className="row">
 						<input
@@ -31,7 +35,7 @@ function App() {
         </div>
 				</form>
 			</div>
-			{/*<button onClick={toggleTheme}>Toggle theme</button>*/}
+			<button onClick={toggleTheme}>Toggle theme</button>
 			<hr/>
 			<ul>
 				<li>Name: {name.value}</li>
