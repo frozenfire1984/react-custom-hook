@@ -23,7 +23,8 @@ function App() {
 	//const [email, setEmail] = useState('')
 	//const [errorEmail, setErrorEmail] = useState(null)
 	
-	const {value, error, onChange, onBlur} = useInput()
+	const name = useInput()
+	const email = useInput("invalid invalid_extra")
 	
 	return (
 		<div className="app">
@@ -31,40 +32,35 @@ function App() {
 				<form>
 					<div className="row">
 						<input
+							className={name.className}
 							type="text"
 							placeholder="name"
 							required
-							onChange={onChange}
-							onBlur={onBlur}
-							value={value}
+							onChange={name.onChange}
+							onBlur={name.onBlur}
+							value={name.value}
 						/>
-						<p>Error: {error}</p>
+						{name.error && <p className="err">Error: {name.error}</p>}
 					</div>
 					
-					{/*<div className="row">
+					<div className="row">
           <input
+						className={email.className}
             type="text"
             placeholder="email"
             required
-            onChange={e => {
-              setEmail(e.target.value)
-            }}
-            onBlur={e => {
-              if (!e.target.value && e.target.required) {
-                setErrorEmail("Is required!")
-              } else {
-                setErrorEmail(null)
-              }
-            }}
+            onChange={email.onChange}
+            onBlur={email.onBlur}
+						value={email.value}
           />
-          <p>Error: {errorEmail}</p>
-        </div>*/}
+						{email.error && <p className="err">Error: {email.error}</p>}
+        </div>
 				</form>
 			</div>
 			<hr/>
 			<ul>
-				<li>Name: {value}</li>
-				{/*<li>Email: {email}</li>*/}
+				{name.error && <li className="err">Name: {name.value}</li>}
+				{email.error && <li className="err">Email: {email.value}</li>}
 			</ul>
 		</div>
 	)

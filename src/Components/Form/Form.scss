@@ -11,6 +11,18 @@
     height: 3rem;
     border: 1px hsl(0, 0%, 70%) solid;
     border-radius: 5px;
+
+    &.invalid {
+      border-color: red;
+
+      &::placeholder {
+        color: red;
+      }
+
+      &_extra {
+        border-width: 3px;
+      }
+    }
   }
 }
 
