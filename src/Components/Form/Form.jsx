@@ -2,29 +2,10 @@ import './Form.scss'
 import useInput from "./../../hooks/useInput";
 
 function App() {
-	//const [value, setValue] = useState('')
-	//const [error, setError] = useState(null)
-	
-	/*const [name, setName] = useState('')
-	const [errorName, setErrorName] = useState(null)
-	
-	const onChangeName = (e) => {
-		setName(e.target.value)
-	}
-	
-	const onBlurName = (e) => {
-		if (!e.target.value && e.target.required) {
-			setErrorName("Is required!")
-		} else {
-			setErrorName(null)
-		}
-	}*/
-	
-	//const [email, setEmail] = useState('')
-	//const [errorEmail, setErrorEmail] = useState(null)
-	
 	const name = useInput()
 	const email = useInput("invalid invalid_extra")
+	
+	const input_attrs = {type: "text", placeholder: "input", required: true}
 	
 	return (
 		<div className="app">
@@ -32,26 +13,18 @@ function App() {
 				<form>
 					<div className="row">
 						<input
-							className={name.className}
-							type="text"
+							{...input_attrs}
 							placeholder="name"
-							required
-							onChange={name.onChange}
-							onBlur={name.onBlur}
-							value={name.value}
+							{...name}
 						/>
 						{name.error && <p className="err">Error: {name.error}</p>}
 					</div>
 					
 					<div className="row">
           <input
-						className={email.className}
-            type="text"
-            placeholder="email"
-            required
-            onChange={email.onChange}
-            onBlur={email.onBlur}
-						value={email.value}
+						{...input_attrs}
+						placeholder="email"
+						{...email}
           />
 						{email.error && <p className="err">Error: {email.error}</p>}
         </div>
@@ -59,8 +32,8 @@ function App() {
 			</div>
 			<hr/>
 			<ul>
-				{name.error && <li className="err">Name: {name.value}</li>}
-				{email.error && <li className="err">Email: {email.value}</li>}
+				<li>Name: {name.value}</li>
+				<li>Email: {email.value}</li>
 			</ul>
 		</div>
 	)
