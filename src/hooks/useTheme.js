@@ -14,11 +14,6 @@ const useTheme = () => {
 	}
 	
 	useEffect(() => {
-		const t = localStorage.getItem("theme") 
-		console.log(t)
-	})
-	
-	useEffect(() => {
 		const localTheme = localStorage.getItem("theme")
 		
 		if (localTheme) {

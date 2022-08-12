@@ -14,10 +14,6 @@ body {
   &.dark {
     background-color: hsl(0, 0%, 20%);
     color: #fff;
-
-    button {
-      //background-color: #fff;
-    }
   }
 }
 
@@ -25,17 +21,9 @@ body {
   width: CLAMP(300px, 70%, 500px);
   margin-inline: auto;
 
-  &.white {
-
-  }
-
   &.dark {
     background-color: hsl(0, 0%, 20%);
     color: #fff;
-
-    button {
-      //background-color: #fff;
-    }
   }
 }
 

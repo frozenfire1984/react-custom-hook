@@ -1,5 +1,3 @@
-
-
 const Note = () => {
 	import('./Form.css')
 	return (

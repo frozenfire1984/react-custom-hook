@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {ThemeContext} from "../../context/ThemeContext";
 
 const Info = () => {
-	const {theme, toggleTheme} = useContext(ThemeContext)
+	const {toggleTheme} = useContext(ThemeContext)
 	return (
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vel?

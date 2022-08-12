@@ -1,16 +1,16 @@
-import './styles/app.scss'
+import {useContext} from "react";
 import Form from "./Components/Form/Form";
 import Info	from "./Components/Info/Info"
-import {ThemeProvider} from "./context/ThemeContext";
+import {ThemeContext} from "./context/ThemeContext";
+import './styles/app.scss'
 
 function App() {
+	const {theme} = useContext(ThemeContext)
 	return (
-		<ThemeProvider>
-			<div className="app">
-				<Form />
-				<Info />
-			</div>
-		</ThemeProvider>
+		<div className={`app ${theme}`}>
+			<Form />
+			<Info />
+		</div>
 	)
 }
 
